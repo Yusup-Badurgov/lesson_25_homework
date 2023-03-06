@@ -16,6 +16,7 @@ def read_file(file_name):
         for line in file:
             yield line
 
+
 def build_query(cmd, value, file_name, data: Optional[Iterable[str]]):
     """формирует словарь запроса для поиска"""
 
@@ -24,6 +25,7 @@ def build_query(cmd, value, file_name, data: Optional[Iterable[str]]):
     else:
         new_data = data
     return list(QUERY_DICT[cmd](value=value, data=new_data))
+
 
 def get_resault(cmd, value, file_name, data):
     """Возвращает результат поиска, по заданным параметрам"""

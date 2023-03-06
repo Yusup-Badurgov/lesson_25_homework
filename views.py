@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from marshmallow import ValidationError
-from processing import build_query, get_resault
+from processing import get_resault
 from model import RequestSchema
 
 query_blueprint = Blueprint('main', __name__)
@@ -40,3 +40,10 @@ def perform_query():
     result = get_resault(cmd, value, file_name, data)
 
     return jsonify(result)
+
+
+@query_blueprint.route('/ping', methods=['GET'])
+def ping():
+    return 'pong'
+
+
