@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/home/yubadurgov/lesson_25_homework
-ExecStart=/home/yubadurgov/lesson_25_homework/env/bin/python run.py
+ExecStart=/home/yubadurgov/lesson_25_homework/env/bin/python -m gunicorn run:app -b 0.0.0.0:5000
 
 [Install]
 WantedBy=multi-user.target
