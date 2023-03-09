@@ -35,4 +35,3 @@ jobs:
           source: "deploy/docker-compose.yaml"
           target: 'deploy'
           strip_components: 1
-      - name: run
