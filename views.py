@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, request
 from marshmallow import ValidationError
+
+from db import db
 from processing import get_resault
 from model import RequestSchema
 
@@ -47,3 +49,11 @@ def ping():
     return 'pong'
 
 
+@query_blueprint.route('/test_db', methods=['GET'])
+def test_db():
+    result = db.session.execute(
+        '''
+        SELECT 1;
+        '''
+    ).scalar()
+    return jsonify({'result': result})
